@@ -435,7 +435,7 @@ const HeartHealthApp = () => {
 
         {/* Navigation */}
         <div className="flex justify-center mb-6">
-          <div className="bg-white rounded-lg shadow-md p-1 border border-pink-200">
+          <div className="bg-white rounded-lg shadow-md p-1 border border-pink-200 flex flex-wrap justify-center gap-1">
             {[
               { key: 'upload', icon: Upload, label: 'Upload' },
               { key: 'dashboard', icon: Activity, label: 'Dashboard' },
@@ -446,14 +446,15 @@ const HeartHealthApp = () => {
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                className={`px-4 py-2 rounded-md transition-colors flex items-center gap-2 ${
+                className={`px-3 py-2 rounded-md transition-colors flex items-center gap-1 text-sm font-medium whitespace-nowrap ${
                   activeTab === key 
                     ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white' 
                     : 'text-gray-600 hover:bg-red-50'
                 }`}
               >
                 <Icon className="w-4 h-4" />
-                {label}
+                <span className="hidden sm:inline">{label}</span>
+                <span className="sm:hidden">{label.split(' ')[0]}</span>
               </button>
             ))}
           </div>
